@@ -7,11 +7,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { App } from './App.tsx';
 import {
+  AdvertisementPage,
+  loader as advertisementLoader,
+} from './pages/AdvertisementPage/AdvertisementPage.tsx';
+import {
   AdvertisementsPage,
   loader as advertisementsLoader,
 } from './pages/AdvertisementsPage/AdvertisementsPage.tsx';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage.tsx';
-import { OrdersPage } from './pages/OrdersPage/OrdersPage.tsx';
+import {
+  loader as ordersLoader,
+  OrdersPage,
+} from './pages/OrdersPage/OrdersPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -25,8 +32,14 @@ const router = createBrowserRouter([
         loader: advertisementsLoader,
       },
       {
+        path: '/advertisements/:advertisementId',
+        element: <AdvertisementPage />,
+        loader: advertisementLoader,
+      },
+      {
         path: '/orders',
         element: <OrdersPage />,
+        loader: ordersLoader,
       },
     ],
   },

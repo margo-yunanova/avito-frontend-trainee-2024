@@ -1,5 +1,4 @@
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import { ThumbUp, Visibility } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -8,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 
-interface Advertisment {
+export interface IAdvertisement {
   id: string;
   name: string; //
   description?: string;
@@ -17,21 +16,32 @@ interface Advertisment {
   views: number; //
   likes: number; //
   imageUrl?: string; //
+  onClick?: () => void;
 }
 
-export const AdvertisementCard: FC<Advertisment> = ({
+export const AdvertisementCard: FC<IAdvertisement> = ({
   name,
   price,
   views,
   likes,
   imageUrl,
+  onClick,
 }) => {
   return (
-    <Card sx={{ width: 345 }}>
+    <Card
+      elevation={2}
+      sx={{
+        width: '320px',
+        height: '470px',
+        borderRadius: '20px',
+        cursor: 'pointer',
+      }}
+      onClick={onClick}
+    >
       <CardMedia
         component="img"
         alt={`Изображение ${name}`}
-        height="345"
+        height="320px"
         image={imageUrl}
       />
       <CardContent
@@ -41,7 +51,7 @@ export const AdvertisementCard: FC<Advertisment> = ({
           justifyContent: 'space-between',
         }}
       >
-        <Typography gutterBottom variant="h6" component="span">
+        <Typography gutterBottom variant="h6" component="span" color="primary">
           {name}
         </Typography>
         <Typography gutterBottom variant="h6" component="span">
@@ -56,7 +66,7 @@ export const AdvertisementCard: FC<Advertisment> = ({
         }}
       >
         <IconButton aria-label="Количество лайков">
-          <ThumbUpIcon />
+          <ThumbUp color="primary" />
         </IconButton>
         <Typography
           gutterBottom
@@ -68,7 +78,7 @@ export const AdvertisementCard: FC<Advertisment> = ({
           {likes}
         </Typography>
         <IconButton aria-label="Количество просмотров">
-          <VisibilityIcon />
+          <Visibility color="primary" />
         </IconButton>
         <Typography
           gutterBottom

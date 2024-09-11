@@ -10,10 +10,7 @@ import {
   AdvertisementPage,
   loader as advertisementLoader,
 } from './pages/AdvertisementPage/AdvertisementPage.tsx';
-import {
-  AdvertisementsPage,
-  loader as advertisementsLoader,
-} from './pages/AdvertisementsPage/AdvertisementsPage.tsx';
+import { AdvertisementsPage } from './pages/AdvertisementsPage/AdvertisementsPage.tsx';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage.tsx';
 import { OrdersPage } from './pages/OrdersPage/OrdersPage.tsx';
 
@@ -26,7 +23,6 @@ const router = createBrowserRouter([
       {
         path: '/advertisements',
         element: <AdvertisementsPage />,
-        loader: advertisementsLoader,
       },
       {
         path: '/advertisements/:advertisementId',

@@ -2,9 +2,22 @@ import { TSortDirection } from '../utils/types';
 import { Advertisement, Order } from './types';
 
 const API_URL = 'http://localhost:3000';
+type AdvertisementParams = {
+  start?: number;
+  limit?: number;
+};
+export const getAdvertisements = async ({
+  start = 0,
+  limit = 10,
+}: AdvertisementParams): Promise<Advertisement[]> => {
+  const params = new URLSearchParams({
+    _start: String(start),
+    _limit: String(limit),
+  });
 
-export const getAdvertisements = async (): Promise<Advertisement[]> => {
-  const response = await fetch(`${API_URL}/advertisements`);
+  const response = await fetch(
+    `${API_URL}/advertisements?${params.toString()}`,
+  );
   const data = await response.json();
   return data;
 };

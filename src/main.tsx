@@ -15,10 +15,7 @@ import {
   loader as advertisementsLoader,
 } from './pages/AdvertisementsPage/AdvertisementsPage.tsx';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage.tsx';
-import {
-  loader as ordersLoader,
-  OrdersPage,
-} from './pages/OrdersPage/OrdersPage.tsx';
+import { OrdersPage } from './pages/OrdersPage/OrdersPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +36,6 @@ const router = createBrowserRouter([
       {
         path: '/orders',
         element: <OrdersPage />,
-        loader: ordersLoader,
       },
     ],
   },

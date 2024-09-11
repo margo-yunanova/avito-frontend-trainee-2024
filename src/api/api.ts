@@ -1,3 +1,4 @@
+import { TSortDirection } from '../utils/types';
 import { Advertisement, Order } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -14,8 +15,29 @@ export const getAdvertisement = async (id: number): Promise<Advertisement> => {
   return data;
 };
 
-export const getOrders = async (): Promise<Order[]> => {
-  const response = await fetch(`${API_URL}/orders`);
+type OrderParams = {
+  status?: string;
+  order?: TSortDirection;
+};
+
+export const getOrders = async ({
+  status,
+  order,
+}: OrderParams): Promise<Order[]> => {
+  const params = new URLSearchParams();
+
+  if (status !== undefined) {
+    params.append('status', status);
+  }
+
+  if (order) {
+    const orderParam = order === 'asc' ? '' : '-';
+    params.append('_sort', `${orderParam}total`);
+  }
+
+  const response = await fetch(`${API_URL}/orders?${params.toString()}`);
+
   const data = await response.json();
+
   return data;
 };

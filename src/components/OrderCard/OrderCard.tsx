@@ -18,7 +18,7 @@ import Typography from '@mui/material/Typography';
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { OrderStatus, TOrderStatus } from '../../utils/constants';
+import { orderStatuses } from '../../utils/constants';
 import { IAdvertisement } from '../AdvertisementCard/AdvertisementCard';
 
 interface IOrderItem extends IAdvertisement {
@@ -27,7 +27,7 @@ interface IOrderItem extends IAdvertisement {
 
 interface IOrderCard extends IAdvertisement {
   id: string;
-  status: keyof typeof OrderStatus;
+  status: keyof typeof orderStatuses;
   createdAt: string;
   finishedAt?: string;
   items: IOrderItem[];
@@ -67,9 +67,8 @@ export const OrderCard: FC<IOrderCard> = ({
   id,
   status,
   createdAt,
-  finishedAt,
+
   items,
-  deliveryWay,
   total,
 }) => {
   const [expanded, setExpanded] = useState(false);
@@ -89,7 +88,7 @@ export const OrderCard: FC<IOrderCard> = ({
             Номер заказа: {id}
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-            Статус: {OrderStatus[Number(status)]}
+            Статус: {orderStatuses[Number(status)]}
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary' }}>
             Сумма заказа: {total} ₽

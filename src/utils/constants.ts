@@ -1,13 +1,6 @@
-export type TOrderStatus =
-  | 'Создан'
-  | 'Оплачен'
-  | 'В пути'
-  | 'Доставлен'
-  | 'Получен'
-  | 'Архивирован'
-  | 'Возврат';
+import { TOrderStatus } from './types';
 
-export const OrderStatus: TOrderStatus[] = [
+export const orderStatuses: TOrderStatus[] = [
   'Создан',
   'Оплачен',
   'В пути',

@@ -38,8 +38,13 @@ export const AdvertisementsPage = () => {
     setOpenModal(false);
   };
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setQuantity(Number(event.target.value));
+  const handleDisplayedQuantity = (event: SelectChangeEvent) => {
+    const newQuantity = Number(event.target.value);
+    setQuantity(newQuantity);
+    setPage(1);
+    getAdvertisements({ start: 0, limit: newQuantity }).then((data) =>
+      setAdvertisements(data),
+    );
   };
 
   const handlePagination = (_: ChangeEvent<unknown>, page: number) => {
@@ -47,14 +52,15 @@ export const AdvertisementsPage = () => {
     navigate(
       {
         pathname: '/advertisements',
-        search: `${createSearchParams({ page: String(page) })}`,
+        search: `${createSearchParams({ start: String(page) })}`,
       },
       { replace: true },
     );
 
-    getAdvertisements({ start: (page - 1) * quantity, limit: quantity }).then(
-      (data) => setAdvertisements(data),
-    );
+    getAdvertisements({
+      start: (page - 1) * quantity,
+      limit: quantity,
+    }).then((data) => setAdvertisements(data));
   };
 
   useEffect(() => {
@@ -95,7 +101,7 @@ export const AdvertisementsPage = () => {
                 id="количество объявлений"
                 value={String(quantity)}
                 label="Количество объявлений"
-                onChange={handleChange}
+                onChange={handleDisplayedQuantity}
               >
                 {[10, 50, 100].map((item) => (
                   <MenuItem value={String(item)}>{item}</MenuItem>

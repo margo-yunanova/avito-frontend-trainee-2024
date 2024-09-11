@@ -27,6 +27,7 @@ export const AdvertisementsPage = () => {
   const [advertisements, setAdvertisements] = useState<Advertisement[]>([]);
   const [quantity, setQuantity] = useState(10);
   const [page, setPage] = useState(+(searchParams.get('page') ?? 1));
+  const [totalPages, setTotalPages] = useState(0);
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -42,9 +43,6 @@ export const AdvertisementsPage = () => {
     const newQuantity = Number(event.target.value);
     setQuantity(newQuantity);
     setPage(1);
-    getAdvertisements({ start: 0, limit: newQuantity }).then((data) =>
-      setAdvertisements(data),
-    );
   };
 
   const handlePagination = (_: ChangeEvent<unknown>, page: number) => {
@@ -52,20 +50,18 @@ export const AdvertisementsPage = () => {
     navigate(
       {
         pathname: '/advertisements',
-        search: `${createSearchParams({ start: String(page) })}`,
+        search: `${createSearchParams({ page: String(page) })}`,
       },
       { replace: true },
     );
-
-    getAdvertisements({
-      start: (page - 1) * quantity,
-      limit: quantity,
-    }).then((data) => setAdvertisements(data));
   };
 
   useEffect(() => {
-    getAdvertisements({}).then((data) => setAdvertisements(data));
-  }, []);
+    getAdvertisements({ page }).then((data) => {
+      setAdvertisements(data.data);
+      setTotalPages(data.pages);
+    });
+  }, [page]);
 
   return (
     <>
@@ -103,8 +99,10 @@ export const AdvertisementsPage = () => {
                 label="Количество объявлений"
                 onChange={handleDisplayedQuantity}
               >
-                {[10, 50, 100].map((item) => (
-                  <MenuItem value={String(item)}>{item}</MenuItem>
+                {[10, 50, 100].map((item, i) => (
+                  <MenuItem key={i} value={String(item)}>
+                    {item}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -134,7 +132,7 @@ export const AdvertisementsPage = () => {
           ))}
         </Stack>
         <Pagination
-          count={10}
+          count={totalPages}
           color="primary"
           page={page}
           onChange={handlePagination}

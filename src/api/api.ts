@@ -3,16 +3,26 @@ import { Advertisement, Order } from './types';
 
 const API_URL = 'http://localhost:3000';
 type AdvertisementParams = {
-  start?: number;
-  limit?: number;
+  page?: number;
+  per_page?: number;
+};
+
+type AdvertisementsPagination = {
+  data: Advertisement[];
+  first: number;
+  items: number;
+  last: number;
+  next: number;
+  pages: number;
+  prev: number | null;
 };
 export const getAdvertisements = async ({
-  start = 0,
-  limit = 10,
-}: AdvertisementParams): Promise<Advertisement[]> => {
+  page = 1,
+  per_page = 10,
+}: AdvertisementParams): Promise<AdvertisementsPagination> => {
   const params = new URLSearchParams({
-    _start: String(start),
-    _limit: String(limit),
+    _page: String(page),
+    _per_page: String(per_page),
   });
 
   const response = await fetch(

@@ -43,7 +43,7 @@ export const AdvertisementPage = () => {
   useEffect(() => {
     if (!advertisementId) return;
 
-    getAdvertisement(+advertisementId).then((data) => {
+    getAdvertisement(advertisementId).then((data) => {
       setAdvertisement(data);
     });
   }, [advertisementId]);

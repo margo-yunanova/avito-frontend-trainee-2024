@@ -2,6 +2,26 @@ import { TSortDirection } from '../utils/types';
 import { Advertisement, Order } from './types';
 
 const API_URL = 'http://localhost:3000';
+
+const checkResponse = (res: Response) =>
+  res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
+
+const request = async (
+  endpoint: string,
+  searchParams?: string,
+  options?: RequestInit,
+) => {
+  const url = `${API_URL}/${endpoint}`;
+  const params = {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+      ...options?.headers,
+    },
+  };
+  return checkResponse(await fetch(`${url}?${searchParams}`, params));
+};
+
 type AdvertisementParams = {
   page?: number;
   per_page?: number;
@@ -33,17 +53,11 @@ export const getAdvertisements = async ({
     params.append('name', searchValue);
   }
 
-  const response = await fetch(
-    `${API_URL}/advertisements?${params.toString()}`,
-  );
-  const data = await response.json();
-  return data;
+  return request('advertisements', params.toString());
 };
 
-export const getAdvertisement = async (id: number): Promise<Advertisement> => {
-  const response = await fetch(`${API_URL}/advertisements/${id}`);
-  const data = await response.json();
-  return data;
+export const getAdvertisement = async (id: string): Promise<Advertisement> => {
+  return request(`advertisements/${id}`);
 };
 
 type OrderParams = {
@@ -66,38 +80,24 @@ export const getOrders = async ({
     params.append('_sort', `${orderParam}total`);
   }
 
-  const response = await fetch(`${API_URL}/orders?${params.toString()}`);
-
-  const data = await response.json();
-
-  return data;
+  return request('orders', params.toString());
 };
 
 export const createAdvertisement = async (
   advertisement: Omit<Advertisement, 'id' | 'views' | 'likes'>,
 ): Promise<Advertisement> => {
-  const response = await fetch(`${API_URL}/advertisements`, {
+  return request('advertisements', '', {
     method: 'POST',
     body: JSON.stringify(advertisement),
-    headers: {
-      'Content-Type': 'application/json',
-    },
   });
-  const data = await response.json();
-  return data;
 };
 
 export const editAdvertisement = async (
   id: string,
   advertisement: Omit<Advertisement, 'id' | 'views' | 'likes' | 'createdAt'>,
 ): Promise<Advertisement> => {
-  const response = await fetch(`${API_URL}/advertisements/${id}`, {
+  return request(`advertisements/${id}`, '', {
     method: 'PATCH',
     body: JSON.stringify(advertisement),
-    headers: {
-      'Content-Type': 'application/json',
-    },
   });
-  const data = await response.json();
-  return data;
 };

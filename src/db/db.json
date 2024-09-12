@@ -2,7 +2,7 @@
   "advertisements": [
     {
       "id": "1",
-      "name": "Стул старинный",
+      "name": "Стул старинный2",
       "description": "Очень красивый",
       "price": "3000",
       "createdAt": "2022-08-12T20:16:55.351Z",
@@ -169,7 +169,7 @@
     },
     {
       "id": "c908",
-      "name": "Велосипед",
+      "name": "Велосипед1",
       "description": "Велосипед хороший",
       "price": "20000",
       "imageUrl": "https://50.img.avito.st/image/1/1.wqpmCba4bkNQvuxObiqFpA2rbEXYqOxVUKVsQdagZknQ.gwjcmwfbd_cXUNCnvgi1sNl7AY57rQxylFQKkCEYwVw"

@@ -10,7 +10,7 @@ import { CreateAdvertisementModal } from '../../components/CreateAdvertisementMo
 
 export const AdvertisementPage = () => {
   const { advertisementId } = useParams();
-  console.log(advertisementId);
+
   const [advertisement, setAdvertisement] = useState<Advertisement | null>(
     null,
   );
@@ -40,6 +40,14 @@ export const AdvertisementPage = () => {
     });
   };
 
+  let formattedDate = '';
+
+  if (advertisement?.createdAt) {
+    formattedDate = new Date(advertisement?.createdAt).toLocaleDateString(
+      'ru-RU',
+    );
+  }
+
   useEffect(() => {
     if (!advertisementId) return;
 
@@ -64,7 +72,7 @@ export const AdvertisementPage = () => {
           <Typography variant="h4">{advertisement?.price} ₽</Typography>
           <Typography variant="body1">{advertisement?.description}</Typography>
           <Typography variant="body2">
-            Объявление размещено {advertisement?.createdAt}
+            Объявление размещено {formattedDate}
           </Typography>
           <IconButton aria-label="Количество лайков">
             <ThumbUp color="primary" />

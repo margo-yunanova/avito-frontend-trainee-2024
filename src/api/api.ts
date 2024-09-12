@@ -19,7 +19,7 @@ const request = async (
       ...options?.headers,
     },
   };
-  return checkResponse(await fetch(`${url}?${searchParams}`, params));
+  return checkResponse(await fetch(`${url}?${searchParams ?? ''}`, params));
 };
 
 type AdvertisementParams = {

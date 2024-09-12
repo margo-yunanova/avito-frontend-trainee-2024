@@ -5,6 +5,7 @@ const API_URL = 'http://localhost:3000';
 type AdvertisementParams = {
   page?: number;
   per_page?: number;
+  searchValue?: string;
 };
 
 type AdvertisementsPagination = {
@@ -19,11 +20,18 @@ type AdvertisementsPagination = {
 export const getAdvertisements = async ({
   page = 1,
   per_page = 10,
+  searchValue = '',
 }: AdvertisementParams): Promise<AdvertisementsPagination> => {
   const params = new URLSearchParams({
     _page: String(page),
     _per_page: String(per_page),
   });
+
+  // INFO: в текущей версии json-server не поддерживает поиск по подстроке
+
+  if (searchValue !== '') {
+    params.append('name', searchValue);
+  }
 
   const response = await fetch(
     `${API_URL}/advertisements?${params.toString()}`,

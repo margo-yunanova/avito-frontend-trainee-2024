@@ -15,6 +15,7 @@ import {
   useNavigate,
   useSearchParams,
 } from 'react-router-dom';
+import { useDebounce } from 'use-debounce';
 
 import { getAdvertisements } from '../../api/api';
 import { Advertisement } from '../../api/types';
@@ -28,7 +29,8 @@ export const AdvertisementsPage = () => {
   const [quantity, setQuantity] = useState(10);
   const [page, setPage] = useState(+(searchParams.get('page') ?? 1));
   const [totalPages, setTotalPages] = useState(0);
-
+  const [searchValue, setSearchValue] = useState('');
+  const [debouncedSearchValue] = useDebounce(searchValue, 500);
   const [openModal, setOpenModal] = useState(false);
 
   const handleClickOpenModal = () => {
@@ -57,11 +59,13 @@ export const AdvertisementsPage = () => {
   };
 
   useEffect(() => {
-    getAdvertisements({ page }).then((data) => {
-      setAdvertisements(data.data);
-      setTotalPages(data.pages);
-    });
-  }, [page]);
+    getAdvertisements({ page, searchValue: debouncedSearchValue }).then(
+      (data) => {
+        setAdvertisements(data.data);
+        setTotalPages(data.pages);
+      },
+    );
+  }, [page, debouncedSearchValue]);
 
   return (
     <>
@@ -86,6 +90,8 @@ export const AdvertisementsPage = () => {
             variant="outlined"
             margin="dense"
             sx={{ width: '300px' }}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
           <Stack display="flex" flexDirection="row">
             <FormControl sx={{ m: 1, width: '200px' }}>

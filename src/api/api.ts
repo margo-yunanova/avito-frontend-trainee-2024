@@ -72,3 +72,17 @@ export const getOrders = async ({
 
   return data;
 };
+
+export const createAdvertisement = async (
+  advertisement: Omit<Advertisement, 'id' | 'views' | 'likes'>,
+): Promise<Advertisement> => {
+  const response = await fetch(`${API_URL}/advertisements`, {
+    method: 'POST',
+    body: JSON.stringify(advertisement),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await response.json();
+  return data;
+};

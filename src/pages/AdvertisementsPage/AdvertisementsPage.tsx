@@ -9,7 +9,7 @@ import {
   Stack,
   TextField,
 } from '@mui/material';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import {
   createSearchParams,
   useNavigate,
@@ -17,7 +17,7 @@ import {
 } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 
-import { getAdvertisements } from '../../api/api';
+import { createAdvertisement, getAdvertisements } from '../../api/api';
 import { Advertisement } from '../../api/types';
 import { AdvertisementCard } from '../../components/AdvertisementCard';
 import { CreateAdvertisementModal } from '../../components/CreateAdvertisementModal';
@@ -39,6 +39,25 @@ export const AdvertisementsPage = () => {
 
   const handleCloseModal = () => {
     setOpenModal(false);
+  };
+
+  // TODO обновить данные на странице после создания объявления
+
+  const handleCreateAdvertisement = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const formJson = Object.fromEntries((formData as any).entries());
+    const { name, description, price, imageUrl } = formJson;
+    createAdvertisement({
+      name,
+      description,
+      price,
+      imageUrl,
+      createdAt: new Date().toISOString(),
+    }).then(() => {
+      handleCloseModal();
+    });
   };
 
   const handleDisplayedQuantity = (event: SelectChangeEvent) => {
@@ -146,7 +165,11 @@ export const AdvertisementsPage = () => {
       </Stack>
 
       {openModal && (
-        <CreateAdvertisementModal open={openModal} onClose={handleCloseModal} />
+        <CreateAdvertisementModal
+          open={openModal}
+          onClose={handleCloseModal}
+          onSubmit={handleCreateAdvertisement}
+        />
       )}
     </>
   );

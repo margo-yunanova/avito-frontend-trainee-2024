@@ -9,20 +9,14 @@ import { FC, FormEvent } from 'react';
 interface ICreateAdvertisementModal {
   open: boolean;
   onClose: () => void;
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
 export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
   open,
   onClose,
+  onSubmit,
 }) => {
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const formJson = Object.fromEntries((formData as any).entries());
-    const { title, description, price } = formJson;
-    console.log(title, description, price);
-    onClose();
-  };
   return (
     <>
       <Dialog
@@ -30,7 +24,7 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
         onClose={onClose}
         PaperProps={{
           component: 'form',
-          onSubmit: handleSubmit,
+          onSubmit,
         }}
       >
         <DialogTitle>Создать объявление</DialogTitle>
@@ -39,8 +33,8 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
             autoFocus
             required
             margin="dense"
-            id="title"
-            name="title"
+            id="name"
+            name="name"
             label="Заголовок"
             type="text"
             fullWidth
@@ -63,6 +57,16 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
             name="price"
             label="Цена"
             type="number"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            required
+            margin="dense"
+            id="imageUrl"
+            name="imageUrl"
+            label="Изображение"
+            type="url"
             fullWidth
             variant="standard"
           />

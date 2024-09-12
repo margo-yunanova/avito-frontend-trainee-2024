@@ -8,20 +8,21 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server --watch db/db.json"
+    "server": "json-server --watch src/db/db.json"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.0.14",
+    "@mui/icons-material": "^6.0.2",
     "@mui/material": "^6.0.2",
     "@reduxjs/toolkit": "^2.2.7",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
     "json-server": "^1.0.0-beta.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.2",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "use-debounce": "^10.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -31,8 +32,11 @@
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-autofix": "^2.2.0",
+    "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-storybook": "^0.8.0",
     "prettier": "3.3.2",
     "typescript": "^5.2.2",

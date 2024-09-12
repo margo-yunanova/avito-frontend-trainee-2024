@@ -7,12 +7,24 @@ import TextField from '@mui/material/TextField';
 import { FC, FormEvent } from 'react';
 
 interface ICreateAdvertisementModal {
+  title?: string;
   open: boolean;
   onClose: () => void;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  name?: string;
+  description?: string;
+  price?: number;
+  imageUrl?: string;
+  submitButtonText?: string;
 }
 
 export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
+  title = 'Создать объявление',
+  name,
+  description,
+  price,
+  imageUrl,
+  submitButtonText = 'Создать',
   open,
   onClose,
   onSubmit,
@@ -27,7 +39,7 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
           onSubmit,
         }}
       >
-        <DialogTitle>Создать объявление</DialogTitle>
+        <DialogTitle>{title}</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -39,6 +51,7 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
             type="text"
             fullWidth
             variant="standard"
+            defaultValue={name ?? ''}
           />
           <TextField
             required
@@ -49,6 +62,7 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
             type="text"
             fullWidth
             variant="standard"
+            defaultValue={description ?? ''}
           />
           <TextField
             required
@@ -59,6 +73,7 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
             type="number"
             fullWidth
             variant="standard"
+            defaultValue={price ?? ''}
           />
           <TextField
             required
@@ -69,11 +84,12 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
             type="url"
             fullWidth
             variant="standard"
+            defaultValue={imageUrl ?? ''}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose}>Закрыть без сохранения</Button>
-          <Button type="submit">Создать</Button>
+          <Button type="submit">{submitButtonText}</Button>
         </DialogActions>
       </Dialog>
     </>

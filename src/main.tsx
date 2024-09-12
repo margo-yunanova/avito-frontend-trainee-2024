@@ -6,10 +6,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { App } from './App.tsx';
-import {
-  AdvertisementPage,
-  loader as advertisementLoader,
-} from './pages/AdvertisementPage/AdvertisementPage.tsx';
+import { AdvertisementPage } from './pages/AdvertisementPage/AdvertisementPage.tsx';
 import { AdvertisementsPage } from './pages/AdvertisementsPage/AdvertisementsPage.tsx';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage.tsx';
 import { OrdersPage } from './pages/OrdersPage/OrdersPage.tsx';
@@ -27,7 +24,6 @@ const router = createBrowserRouter([
       {
         path: '/advertisements/:advertisementId',
         element: <AdvertisementPage />,
-        loader: advertisementLoader,
       },
       {
         path: '/orders',

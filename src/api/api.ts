@@ -86,3 +86,18 @@ export const createAdvertisement = async (
   const data = await response.json();
   return data;
 };
+
+export const editAdvertisement = async (
+  id: string,
+  advertisement: Omit<Advertisement, 'id' | 'views' | 'likes' | 'createdAt'>,
+): Promise<Advertisement> => {
+  const response = await fetch(`${API_URL}/advertisements/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(advertisement),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await response.json();
+  return data;
+};

@@ -4,11 +4,11 @@
       "id": "1",
       "name": "Стул старинный",
       "description": "Очень красивый",
-      "price": 2000,
+      "price": "3000",
       "createdAt": "2022-08-12T20:16:55.351Z",
       "views": 20,
       "likes": 2,
-      "imageUrl": "https://kontora-k.ru/s_img/23609.jpg"
+      "imageUrl": "https://shebbyantik.ru/upload/iblock/488/488fa23d2d04d2eb89bb2fcc7ed8aac6.jpg"
     },
     {
       "id": "2",
@@ -76,6 +76,120 @@
       "views": 200000,
       "likes": 302,
       "imageUrl": "https://appdom.ru/image/cache/catalog/iphone/ip15pro/apple-iphone-15-pro-natural-titanium-1x-1000x1000.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Антикварная лампа",
+      "description": "Уникальная настольная лампа с абажуром",
+      "price": 5000,
+      "createdAt": "2022-09-10T18:35:22.123Z",
+      "views": 50,
+      "likes": 8,
+      "imageUrl": "https://example.com/lamp.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Кресло кожаное",
+      "description": "Удобное кресло для гостиной",
+      "price": 7000,
+      "createdAt": "2022-10-05T12:24:11.789Z",
+      "views": 34,
+      "likes": 6,
+      "imageUrl": "https://example.com/armchair.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Картина маслом",
+      "description": "Ручная работа, пейзаж",
+      "price": 12000,
+      "createdAt": "2022-11-15T16:47:02.456Z",
+      "views": 88,
+      "likes": 12,
+      "imageUrl": "https://example.com/painting.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Диван трехместный",
+      "description": "Элегантный диван в классическом стиле",
+      "price": 15000,
+      "createdAt": "2022-12-20T10:30:48.987Z",
+      "views": 42,
+      "likes": 7,
+      "imageUrl": "https://example.com/sofa.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Часы настенные",
+      "description": "Антикварные часы с маятником",
+      "price": 8000,
+      "createdAt": "2023-01-02T09:15:29.654Z",
+      "views": 27,
+      "likes": 4,
+      "imageUrl": "https://example.com/wallclock.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Комод деревянный",
+      "description": "Просторный комод с резьбой",
+      "price": 9000,
+      "createdAt": "2023-02-14T13:48:33.321Z",
+      "views": 37,
+      "likes": 5,
+      "imageUrl": "https://example.com/commode.jpg"
+    },
+    {
+      "id": "15",
+      "name": "Торшер напольный",
+      "description": "Стильный торшер для любой комнаты",
+      "price": 4500,
+      "createdAt": "2023-03-25T15:55:01.789Z",
+      "views": 30,
+      "likes": 3,
+      "imageUrl": "https://example.com/floorlamp.jpg"
+    },
+    {
+      "id": "16",
+      "name": "Шкаф купе",
+      "description": "Большой шкаф с зеркальными дверями",
+      "price": 18000,
+      "createdAt": "2023-04-30T19:42:55.987Z",
+      "views": 60,
+      "likes": 10,
+      "imageUrl": "https://example.com/wardrobe.jpg"
+    },
+    {
+      "id": "17",
+      "name": "Кровать двуспальная",
+      "description": "Роскошная кровать с мягким изголовьем",
+      "price": 25000,
+      "createdAt": "2023-05-17T14:21:33.654Z",
+      "views": 45,
+      "likes": 6,
+      "imageUrl": "https://example.com/bed.jpg"
+    },
+    {
+      "id": "c908",
+      "name": "Велосипед",
+      "description": "Велосипед хороший",
+      "price": "20000",
+      "imageUrl": "https://50.img.avito.st/image/1/1.wqpmCba4bkNQvuxObiqFpA2rbEXYqOxVUKVsQdagZknQ.gwjcmwfbd_cXUNCnvgi1sNl7AY57rQxylFQKkCEYwVw"
+    },
+    {
+      "id": "21ac",
+      "name": "Велосипед",
+      "description": "Велосипед самый лучший",
+      "price": "1000000",
+      "imageUrl": "https://www.avito.ru/lipetsk/velosipedy/velosiped_4095822557"
+    },
+    {
+      "id": "18",
+      "name": "Стул старинный",
+      "description": "Очень красивый",
+      "price": 20000,
+      "createdAt": "2022-08-12T20:16:55.351Z",
+      "views": 200,
+      "likes": 20,
+      "imageUrl": "https://kontora-k.ru/s_img/23609.jpg"
     }
   ],
   "orders": [
@@ -100,13 +214,45 @@
         {
           "id": "6",
           "name": "Картонная коробка",
-          "description": "Почная.",
+          "description": "Прочная.",
           "price": 7000,
           "createdAt": "2024-04-12T20:16:55.351Z",
           "views": 1,
           "likes": 0,
           "imageUrl": "",
           "count": 2
+        },
+        {
+          "id": "1",
+          "name": "Стул старинный",
+          "description": "Очень красивый",
+          "price": 2000,
+          "createdAt": "2022-08-12T20:16:55.351Z",
+          "views": 20,
+          "likes": 2,
+          "imageUrl": "https://kontora-k.ru/s_img/23609.jpg",
+          "count": 10
+        },
+        {
+          "id": "2",
+          "name": "Ведро снега",
+          "description": "Последняя возможность купить по выгодной цене!",
+          "price": 3000,
+          "createdAt": "2023-08-12T20:16:55.351Z",
+          "views": 77832,
+          "likes": 45666,
+          "imageUrl": "https://70.img.avito.st/image/1/1.A8G8xba5ryiqbRUitt1m8DBmqSIIxqaSAmatLABspSo.cD_tjm-CnaypFLL4eQQTFwl4U5aZuVc-4unAZRbWPic",
+          "count": 10
+        },
+        {
+          "id": "3",
+          "name": "Плащ невидимка",
+          "price": 10000000,
+          "createdAt": "2024-08-12T20:16:55.351Z",
+          "views": 900,
+          "likes": 19,
+          "imageUrl": "https://oblast45.ru/uploads/publications/images/8059/big/e8e865665382a8863de7a363191e9383c1e85f14.jpg",
+          "count": 10
         }
       ]
     },
@@ -138,6 +284,50 @@
           "likes": 0,
           "imageUrl": "",
           "count": 5
+        },
+        {
+          "id": "14",
+          "name": "Комод деревянный",
+          "description": "Просторный комод с резьбой",
+          "price": 9000,
+          "createdAt": "2023-02-14T13:48:33.321Z",
+          "views": 37,
+          "likes": 5,
+          "imageUrl": "https://example.com/commode.jpg",
+          "count": 10
+        },
+        {
+          "id": "15",
+          "name": "Торшер напольный",
+          "description": "Стильный торшер для любой комнаты",
+          "price": 4500,
+          "createdAt": "2023-03-25T15:55:01.789Z",
+          "views": 30,
+          "likes": 3,
+          "imageUrl": "https://example.com/floorlamp.jpg",
+          "count": 10
+        },
+        {
+          "id": "16",
+          "name": "Шкаф купе",
+          "description": "Большой шкаф с зеркальными дверями",
+          "price": 18000,
+          "createdAt": "2023-04-30T19:42:55.987Z",
+          "views": 60,
+          "likes": 10,
+          "imageUrl": "https://example.com/wardrobe.jpg",
+          "count": 10
+        },
+        {
+          "id": "17",
+          "name": "Кровать двуспальная",
+          "description": "Роскошная кровать с мягким изголовьем",
+          "price": 25000,
+          "createdAt": "2023-05-17T14:21:33.654Z",
+          "views": 45,
+          "likes": 6,
+          "imageUrl": "https://example.com/bed.jpg",
+          "count": 10
         }
       ]
     }

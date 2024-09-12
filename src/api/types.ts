@@ -45,12 +45,3 @@ export type Order = {
   /* Сумма заказа */
   total: number;
 };
-
-type Image = {
-  /* Уникальный идентификатор. */
-  id: number;
-  /* Ссылка. */
-  url: string;
-  /* Название. */
-  name: string;
-};

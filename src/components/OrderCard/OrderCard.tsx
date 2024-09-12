@@ -25,7 +25,7 @@ interface IOrderItem extends IAdvertisement {
   count: number;
 }
 
-interface IOrderCard extends IAdvertisement {
+interface IOrderCard {
   id: string;
   status: keyof typeof orderStatuses;
   createdAt: string;
@@ -68,7 +68,6 @@ export const OrderCard: FC<IOrderCard> = ({
   id,
   status,
   createdAt,
-
   items,
   total,
 }) => {
@@ -78,6 +77,12 @@ export const OrderCard: FC<IOrderCard> = ({
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  let formattedDate = '';
+
+  if (createdAt) {
+    formattedDate = new Date(createdAt).toLocaleDateString('ru-RU');
+  }
 
   return (
     <Card sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -97,9 +102,9 @@ export const OrderCard: FC<IOrderCard> = ({
           <Typography variant="body1" sx={{ color: 'text.secondary' }}>
             Количество товаров: {items.length}
           </Typography>
-          {/* TODO - дата */}
+
           <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-            Дата создания заказа: {createdAt}
+            Дата создания заказа: {formattedDate}
           </Typography>
         </CardContent>
       </div>

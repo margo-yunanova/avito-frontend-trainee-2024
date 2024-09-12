@@ -1,5 +1,5 @@
 import { ThumbUp, Visibility } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
+import { IconButton, Stack } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -31,30 +31,46 @@ export const AdvertisementCard: FC<IAdvertisement> = ({
     <Card
       elevation={2}
       sx={{
-        width: '320px',
-        height: '470px',
+        width: '240px',
         borderRadius: '20px',
         cursor: 'pointer',
+        '&:hover': {
+          backgroundColor: 'rgba(0, 0, 0, 0.08)',
+        },
       }}
       onClick={onClick}
     >
       <CardMedia
         component="img"
         alt={`Изображение ${name}`}
-        height="320px"
+        height="240px"
         image={imageUrl}
       />
       <CardContent
         sx={{
           display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
+          flexDirection: 'column',
+          // justifyContent: 'space-between',
+          padding: '8px 16px 0',
         }}
       >
-        <Typography gutterBottom variant="h6" component="span" color="primary">
+        <Typography
+          gutterBottom
+          variant="body1"
+          component="span"
+          color="primary"
+          marginBottom="0"
+          fontWeight="bold"
+        >
           {name}
         </Typography>
-        <Typography gutterBottom variant="h6" component="span">
+        <Typography
+          gutterBottom
+          variant="body1"
+          component="span"
+          marginBottom="0"
+          fontWeight="bold"
+        >
           {price} ₽
         </Typography>
       </CardContent>
@@ -62,33 +78,38 @@ export const AdvertisementCard: FC<IAdvertisement> = ({
         sx={{
           display: 'flex',
           flexDirection: 'row',
-          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '8px 16px 8px 0',
         }}
       >
-        <IconButton aria-label="Количество лайков">
-          <ThumbUp color="primary" />
-        </IconButton>
-        <Typography
-          gutterBottom
-          variant="h6"
-          component="span"
-          padding="8px 0"
-          marginBottom="0"
-        >
-          {likes}
-        </Typography>
-        <IconButton aria-label="Количество просмотров">
-          <Visibility color="primary" />
-        </IconButton>
-        <Typography
-          gutterBottom
-          variant="h6"
-          component="span"
-          padding="8px 0"
-          marginBottom="0"
-        >
-          {views}
-        </Typography>
+        <Stack display="flex" flexDirection="row" paddingLeft="8px">
+          <IconButton aria-label="Количество лайков">
+            <ThumbUp color="primary" />
+          </IconButton>
+          <Typography
+            gutterBottom
+            variant="body1"
+            component="span"
+            padding="8px 0"
+            marginBottom="0"
+          >
+            {likes}
+          </Typography>
+        </Stack>
+        <Stack display="flex" flexDirection="row">
+          <IconButton aria-label="Количество просмотров">
+            <Visibility color="primary" />
+          </IconButton>
+          <Typography
+            gutterBottom
+            variant="body1"
+            component="span"
+            padding="8px 0"
+            marginBottom="0"
+          >
+            {views}
+          </Typography>
+        </Stack>
       </CardActions>
     </Card>
   );

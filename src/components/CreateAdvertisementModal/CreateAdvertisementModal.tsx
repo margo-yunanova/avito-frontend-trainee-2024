@@ -19,7 +19,7 @@ interface ICreateAdvertisementModal {
 }
 
 export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
-  title = 'Создать объявление',
+  title = 'Создать',
   name,
   description,
   price,
@@ -63,6 +63,7 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
             fullWidth
             variant="standard"
             defaultValue={description ?? ''}
+            multiline
           />
           <TextField
             required
@@ -88,7 +89,7 @@ export const CreateAdvertisementModal: FC<ICreateAdvertisementModal> = ({
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose}>Закрыть без сохранения</Button>
+          <Button onClick={onClose}>Закрыть</Button>
           <Button type="submit">{submitButtonText}</Button>
         </DialogActions>
       </Dialog>

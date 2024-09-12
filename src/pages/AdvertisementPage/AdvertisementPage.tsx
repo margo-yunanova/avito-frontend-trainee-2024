@@ -28,6 +28,7 @@ export const AdvertisementPage = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const formJson = Object.fromEntries((formData as any).entries());
     const { name, description, price, imageUrl } = formJson;
     editAdvertisement(advertisementId!, {
@@ -35,7 +36,8 @@ export const AdvertisementPage = () => {
       description,
       price,
       imageUrl,
-    }).then(() => {
+    }).then((data) => {
+      setAdvertisement(data);
       handleCloseModal();
     });
   };
@@ -57,10 +59,12 @@ export const AdvertisementPage = () => {
   }, [advertisementId]);
 
   return (
-    <Box sx={{ flexGrow: 1, paddingLeft: '250px' }}>
-      <Grid container spacing={4}>
-        <Grid size={4}>
-          <Typography variant="h4">{advertisement?.name}</Typography>
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={3}>
+        <Grid size={6}>
+          <Typography variant="h4" paddingBottom="25px" fontWeight="bold">
+            {advertisement?.name}
+          </Typography>
           <Box
             width="100%"
             component="img"
@@ -68,9 +72,16 @@ export const AdvertisementPage = () => {
             alt={advertisement?.name}
           ></Box>
         </Grid>
-        <Grid size={6}>
-          <Typography variant="h4">{advertisement?.price} ₽</Typography>
-          <Typography variant="body1">{advertisement?.description}</Typography>
+        <Grid size={4}>
+          <Typography variant="h4" paddingBottom="25px" fontWeight="bold">
+            {advertisement?.price} ₽
+          </Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Описание
+          </Typography>
+          <Typography variant="body1" paddingTop="15px" paddingBottom="25px">
+            {advertisement?.description}
+          </Typography>
           <Typography variant="body2">
             Объявление размещено {formattedDate}
           </Typography>
@@ -101,7 +112,7 @@ export const AdvertisementPage = () => {
         </Grid>
         <Grid size={2}>
           <Button variant="contained" onClick={handleClickOpenModal}>
-            Редактировать объявление
+            Редактировать
           </Button>
         </Grid>
       </Grid>
@@ -116,7 +127,7 @@ export const AdvertisementPage = () => {
           price={advertisement?.price}
           imageUrl={advertisement?.imageUrl}
           title="Редактировать объявление"
-          submitButtonText="Редактировать объявление"
+          submitButtonText="Редактировать"
         />
       )}
     </Box>

@@ -1,6 +1,4 @@
-import { TOrderStatus } from './types';
-
-export const orderStatuses: TOrderStatus[] = [
+export const orderStatuses = [
   'Создан',
   'Оплачен',
   'В пути',

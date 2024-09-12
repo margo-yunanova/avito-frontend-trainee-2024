@@ -43,13 +43,7 @@ export const OrdersPage = () => {
   }, []);
 
   return (
-    <Stack
-      display="flex"
-      flexDirection="column"
-      gap="20px"
-      width="100%"
-      paddingLeft="250px"
-    >
+    <Stack display="flex" flexDirection="column" gap="20px" width="100%">
       <Stack display="flex" flexDirection="row" gap="30px">
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="status-label">Статус</InputLabel>

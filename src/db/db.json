@@ -2,8 +2,8 @@
   "advertisements": [
     {
       "id": "1",
-      "name": "Стул старинный2",
-      "description": "Очень красивый",
+      "name": "Стул старинный",
+      "description": "Продается уникальный старинный стул конца XIX века, выполненный в классическом стиле. Этот стул — настоящее произведение искусства, которое сочетает в себе элегантность, комфорт и долговечность. Ручная работа мастеров того времени видна в каждой детали: изящная резьба по дереву, искусные линии и витиеватые элементы, придающие стулу особый шарм. Стул выполнен из цельного массива дуба, что гарантирует его прочность и долговечность на многие десятилетия вперед.\n\nСиденье и спинка обтянуты оригинальной обивкой из бархата темно-зеленого цвета, которая, несмотря на возраст, сохранила свою насыщенность и плотность. Мягкая подушка обеспечивает комфорт даже при длительном использовании. Этот предмет мебели идеально впишется в интерьер в стиле ретро, прованс или классика, станет стильным акцентом в гостиной, спальне или на веранде.\n\nСтул в отличном состоянии для своего возраста, на нем практически нет потертостей или повреждений. Он подойдет как для коллекционеров, так и для тех, кто ценит изысканную, добротную мебель с историей. Настоящая находка для тех, кто хочет добавить своему интерьеру нотку старины и роскоши!\"\n\nЭто описание подчеркивает как внешние качества, так и историю предмета, делая акцент на его уникальности и ценности",
       "price": "3000",
       "createdAt": "2022-08-12T20:16:55.351Z",
       "views": 20,
@@ -85,7 +85,7 @@
       "createdAt": "2022-09-10T18:35:22.123Z",
       "views": 50,
       "likes": 8,
-      "imageUrl": "https://example.com/lamp.jpg"
+      "imageUrl": "https://cs5.livemaster.ru/storage/89/e5/3b69306f2b164df1a332656441lg--vintazh-antikvarnaya-lampa-frantsiya.jpg"
     },
     {
       "id": "10",
@@ -95,7 +95,7 @@
       "createdAt": "2022-10-05T12:24:11.789Z",
       "views": 34,
       "likes": 6,
-      "imageUrl": "https://example.com/armchair.jpg"
+      "imageUrl": "https://spb.divano.ru/upload/resize_cache/iblock/6b0/1000_1000_140cd750bba9870f18aada2478b24840a/t95hxyqa7ycmdf3wjnezq9cpysuzuk0e.webp"
     },
     {
       "id": "11",
@@ -105,7 +105,7 @@
       "createdAt": "2022-11-15T16:47:02.456Z",
       "views": 88,
       "likes": 12,
-      "imageUrl": "https://example.com/painting.jpg"
+      "imageUrl": "https://cs1.livemaster.ru/storage/16/38/74dad9f8e17cd2b6626adf21adn8--kartiny-i-panno-kartiny-maslom-na-holste-dlya-interera-pejzaz.jpg"
     },
     {
       "id": "12",
@@ -115,7 +115,7 @@
       "createdAt": "2022-12-20T10:30:48.987Z",
       "views": 42,
       "likes": 7,
-      "imageUrl": "https://example.com/sofa.jpg"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx_DsF7B8F9kx6KwkjGAdmnIVgxQmhpgAQ3Q&s"
     },
     {
       "id": "13",
@@ -125,7 +125,7 @@
       "createdAt": "2023-01-02T09:15:29.654Z",
       "views": 27,
       "likes": 4,
-      "imageUrl": "https://example.com/wallclock.jpg"
+      "imageUrl": "https://lalume.ru/image/cache/catalog/i/ig/cj/87de5404622a25f32d23b3ceeb2cc114-660x660.webp"
     },
     {
       "id": "14",
@@ -135,7 +135,7 @@
       "createdAt": "2023-02-14T13:48:33.321Z",
       "views": 37,
       "likes": 5,
-      "imageUrl": "https://example.com/commode.jpg"
+      "imageUrl": "https://caravanna.ru/image/cache/catalog/data/Pictures/Mebel/Hraneniye%20veshey/komody2/kupit-derevyannyj-komod-v-skandi-stile-otra/kupit-derevyannyj-komod-v-skandi-stile-otra-2-900x900.jpg"
     },
     {
       "id": "15",
@@ -145,7 +145,7 @@
       "createdAt": "2023-03-25T15:55:01.789Z",
       "views": 30,
       "likes": 3,
-      "imageUrl": "https://example.com/floorlamp.jpg"
+      "imageUrl": "https://baucenter.ru/upload/pictures/80/803000618-3.jpg"
     },
     {
       "id": "16",
@@ -155,7 +155,7 @@
       "createdAt": "2023-04-30T19:42:55.987Z",
       "views": 60,
       "likes": 10,
-      "imageUrl": "https://example.com/wardrobe.jpg"
+      "imageUrl": "https://ksprofmebel.ru/image/cache/catalog/products/5119/1219-1000x1000.jpg"
     },
     {
       "id": "17",
@@ -165,21 +165,25 @@
       "createdAt": "2023-05-17T14:21:33.654Z",
       "views": 45,
       "likes": 6,
-      "imageUrl": "https://example.com/bed.jpg"
+      "imageUrl": "https://idyllmetal.ru/components/com_jshopping/files/img_products/K025.jpg"
     },
     {
       "id": "c908",
       "name": "Велосипед1",
       "description": "Велосипед хороший",
       "price": "20000",
-      "imageUrl": "https://50.img.avito.st/image/1/1.wqpmCba4bkNQvuxObiqFpA2rbEXYqOxVUKVsQdagZknQ.gwjcmwfbd_cXUNCnvgi1sNl7AY57rQxylFQKkCEYwVw"
+      "imageUrl": "https://50.img.avito.st/image/1/1.wqpmCba4bkNQvuxObiqFpA2rbEXYqOxVUKVsQdagZknQ.gwjcmwfbd_cXUNCnvgi1sNl7AY57rQxylFQKkCEYwVw",
+      "views": 34,
+      "likes": 6
     },
     {
       "id": "21ac",
       "name": "Велосипед",
       "description": "Велосипед самый лучший",
       "price": "1000000",
-      "imageUrl": "https://www.avito.ru/lipetsk/velosipedy/velosiped_4095822557"
+      "imageUrl": "https://static.richfamily.ru/photo/32/00/320036/1.webp",
+      "views": 34,
+      "likes": 6
     },
     {
       "id": "18",

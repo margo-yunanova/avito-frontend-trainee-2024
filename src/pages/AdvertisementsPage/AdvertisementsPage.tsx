@@ -26,7 +26,7 @@ export const AdvertisementsPage = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [advertisements, setAdvertisements] = useState<Advertisement[]>([]);
-  const [quantity, setQuantity] = useState(10);
+  const [perPage, setPerPage] = useState(10);
   const [page, setPage] = useState(+(searchParams.get('page') ?? 1));
   const [totalPages, setTotalPages] = useState(0);
   const [searchValue, setSearchValue] = useState('');
@@ -47,6 +47,7 @@ export const AdvertisementsPage = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const formJson = Object.fromEntries((formData as any).entries());
     const { name, description, price, imageUrl } = formJson;
     createAdvertisement({
@@ -62,7 +63,7 @@ export const AdvertisementsPage = () => {
 
   const handleDisplayedQuantity = (event: SelectChangeEvent) => {
     const newQuantity = Number(event.target.value);
-    setQuantity(newQuantity);
+    setPerPage(newQuantity);
     setPage(1);
   };
 
@@ -78,13 +79,15 @@ export const AdvertisementsPage = () => {
   };
 
   useEffect(() => {
-    getAdvertisements({ page, searchValue: debouncedSearchValue }).then(
-      (data) => {
-        setAdvertisements(data.data);
-        setTotalPages(data.pages);
-      },
-    );
-  }, [page, debouncedSearchValue]);
+    getAdvertisements({
+      page,
+      searchValue: debouncedSearchValue,
+      perPage,
+    }).then((data) => {
+      setAdvertisements(data.data);
+      setTotalPages(data.pages);
+    });
+  }, [page, debouncedSearchValue, perPage]);
 
   return (
     <>
@@ -92,8 +95,6 @@ export const AdvertisementsPage = () => {
         display="flex"
         flexDirection="column"
         gap="20px"
-        width="90%"
-        paddingLeft="250px"
         alignItems="center"
         justifyContent="center"
       >
@@ -120,7 +121,7 @@ export const AdvertisementsPage = () => {
               <Select
                 labelId="количество объявлений"
                 id="количество объявлений"
-                value={String(quantity)}
+                value={String(perPage)}
                 label="Количество объявлений"
                 onChange={handleDisplayedQuantity}
               >
@@ -134,7 +135,7 @@ export const AdvertisementsPage = () => {
             <Button
               variant="contained"
               onClick={handleClickOpenModal}
-              sx={{ width: '300px' }}
+              sx={{ width: '300px', margin: '8px 0 8px 0' }}
             >
               Разместить объявление
             </Button>

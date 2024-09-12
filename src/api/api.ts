@@ -24,7 +24,7 @@ const request = async (
 
 type AdvertisementParams = {
   page?: number;
-  per_page?: number;
+  perPage?: number;
   searchValue?: string;
 };
 
@@ -39,12 +39,12 @@ type AdvertisementsPagination = {
 };
 export const getAdvertisements = async ({
   page = 1,
-  per_page = 10,
+  perPage = 10,
   searchValue = '',
 }: AdvertisementParams): Promise<AdvertisementsPagination> => {
   const params = new URLSearchParams({
     _page: String(page),
-    _per_page: String(per_page),
+    _per_page: String(perPage),
   });
 
   // INFO: в текущей версии json-server не поддерживает поиск по подстроке
@@ -76,8 +76,8 @@ export const getOrders = async ({
   }
 
   if (order) {
-    const orderParam = order === 'asc' ? '' : '-';
-    params.append('_sort', `${orderParam}total`);
+    const orderPrefix = order === 'asc' ? '' : '-';
+    params.append('_sort', `${orderPrefix}total`);
   }
 
   return request('orders', params.toString());
@@ -88,7 +88,7 @@ export const createAdvertisement = async (
 ): Promise<Advertisement> => {
   return request('advertisements', '', {
     method: 'POST',
-    body: JSON.stringify(advertisement),
+    body: JSON.stringify({ ...advertisement, views: 0, likes: 0 }),
   });
 };
 
